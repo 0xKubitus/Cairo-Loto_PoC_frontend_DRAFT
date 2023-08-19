@@ -1,9 +1,18 @@
+import Image from "next/image";
+
 import styles from "@/styles/header.module.css";
 
 export default function Header() {
   return (
     <header className={styles.header_main}>
-      <h1>Header</h1>
+      <a href="#Home">
+        <Image
+          src="https://see.fontimg.com/api/renderfont4/L3wZ/eyJyIjoiZnMiLCJoIjoyNiwidyI6MTAwMCwiZnMiOjI2LCJmZ2MiOiIjMDAwMDAwIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/Q0FJUk8gTE9UTyA/gyptienne-normal.png"
+          alt="Egyptian fonts"
+          width={120}
+          height={24}
+        />
+      </a>
     </header>
   );
 }

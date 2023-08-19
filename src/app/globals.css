@@ -9,3 +9,11 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
 }
+
+main {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  /* line(s) below to be removed */
+  border: 1px solid black;
+}

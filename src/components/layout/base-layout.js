@@ -7,7 +7,7 @@ const BaseLayout = ({ children }) => {
   return (
     <>
       <Header />
-      <main className={styles.base_main}>{children}</main>
+      <main>{children}</main>
       <Footer />
     </>
   );
