@@ -17,6 +17,7 @@ export default function Header() {
 
       <div className={styles.connectBox}>
         <button className={styles.connectBtn}>Connect Wallet</button>
+        {/* TODO: REPLACE BTN WITH A COMPONENT DEDICATED TO "WALLET-CONNECT" */}
       </div>
     </header>
   );
