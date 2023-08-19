@@ -1,4 +1,21 @@
 .header_main {
+  display: flex;
+  justify-content: space-between;
   /* line(s) below to be removed */
   border: 1px solid red;
+}
+
+.headerLogo {
+  margin: 4px 4px 0;
+}
+
+.connectBox {
+  display: flex;
+  justify-content: center;
+  width: 20vw;
+}
+
+.connectBtn {
+  margin: 4px;
+  padding: 0 2px;
 }
