@@ -10,10 +10,11 @@ import {
   useWaitForTransaction,
 } from "@starknet-react/core";
 import { json } from "starknet";
-// import type { Abi, AccountInterface } from "starknet";
 
 import ticketNft from "@/assets/abis/abi_Tickets_v0.3.2.json";
 import environment from "environment";
+
+import styles from "@/styles/mint-btn.module.css";
 
 // Compiled ABI for my 'Tickets' contract
 const compiledTicketNft = json.parse(JSON.stringify(ticketNft));
@@ -83,18 +84,9 @@ export default function MintButton({ ...props }) {
   }, [txDataMintAndTransfer, addTransaction]);
 
   return (
-    <div w="full">
-      {/* <button
-        isDisabled={!account}
-        colorScheme="blue"
-        onClick={() => writeMint()}
-        {...props}
-      >
-        Mint NFT
-      </button> */}
-
-      <div>
-        <p>Balance:</p>
+    <div>
+      <div className={styles.userBalanceContainer}>
+        <p>Tickets Balance:</p>
         {account ? (
           <Balance
             mintHash={txDataMintAndTransfer?.transaction_hash}
