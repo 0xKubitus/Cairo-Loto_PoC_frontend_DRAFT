@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import ConnectButton from "@/components/wallet/connect-btn";
+
 import styles from "@/styles/header.module.css";
 
 export default function Header() {
@@ -16,8 +18,9 @@ export default function Header() {
       </a>
 
       <div className={styles.connectBox}>
-        <button className={styles.connectBtn}>Connect Wallet</button>
+        {/* <button className={styles.connectBtn}>Connect Wallet</button> */}
         {/* TODO: REPLACE BTN WITH A COMPONENT DEDICATED TO "WALLET-CONNECT" */}
+        <ConnectButton />
       </div>
     </header>
   );
