@@ -22,6 +22,8 @@
 
 .dashboardBtn {
   margin: 4px;
-  padding: 2px 2px;
-  background-color: lemonchiffon;
+  padding: 4px 4px;
+  background-color: rgb(128, 144, 234);
+  border: 1px solid grey;
+  border-radius: 2px;
 }

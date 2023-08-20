@@ -13,7 +13,7 @@ export default function Header() {
 
   return (
     <header className={styles.header_main}>
-      <a href="#Home">
+      <a href="/">
         <Image
           className={styles.headerLogo}
           src="https://see.fontimg.com/api/renderfont4/L3wZ/eyJyIjoiZnMiLCJoIjoyNiwidyI6MTAwMCwiZnMiOjI2LCJmZ2MiOiIjMDAwMDAwIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/Q0FJUk8gTE9UTyA/gyptienne-normal.png"
