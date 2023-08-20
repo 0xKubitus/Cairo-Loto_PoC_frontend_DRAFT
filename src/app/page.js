@@ -1,13 +1,18 @@
 import Image from "next/image";
+
+import MintButton from "@/components/nft/mint-btn";
+
 import styles from "./page.module.css";
 
 export default function Home() {
   return (
     <div className={styles.mainContainer}>
-      <h2>Main section</h2>
+      <h2>On-chain Lottery dApp on Starknet</h2>
+      <h4>(Proof of Concept - Deployed on Goerli Testnet)</h4>
+
       <div>
-        <button>MORE INFO</button>
-        <button>BUY A TICKET</button>
+        {/* <button>MORE INFO</button> */}
+        <MintButton />
       </div>
     </div>
   );
