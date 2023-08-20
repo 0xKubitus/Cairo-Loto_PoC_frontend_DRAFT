@@ -1,4 +1,10 @@
 .userBalanceContainer {
   display: flex;
   justify-content: center;
+  margin-top: 40px;
+}
+
+.buyBtn {
+  width: 120px;
+  margin-bottom: 40px;
 }

@@ -1,10 +1,16 @@
+"use client";
+
 import Image from "next/image";
+
+import { useAccount, useContractRead } from "@starknet-react/core";
 
 import ConnectButton from "@/components/wallet/connect-btn";
 
 import styles from "@/styles/header.module.css";
 
 export default function Header() {
+  const { account } = useAccount();
+
   return (
     <header className={styles.header_main}>
       <a href="#Home">
@@ -18,8 +24,12 @@ export default function Header() {
       </a>
 
       <div className={styles.connectBox}>
-        {/* <button className={styles.connectBtn}>Connect Wallet</button> */}
-        {/* TODO: REPLACE BTN WITH A COMPONENT DEDICATED TO "WALLET-CONNECT" */}
+        <a href="/dashboard">
+          {account && (
+            <button className={styles.dashboardBtn}>Dashboard</button>
+          )}
+        </a>
+
         <ConnectButton />
       </div>
     </header>

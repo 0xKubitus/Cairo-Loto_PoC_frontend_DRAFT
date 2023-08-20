@@ -19,3 +19,9 @@
   margin: 4px;
   padding: 0 2px;
 }
+
+.dashboardBtn {
+  margin: 4px;
+  padding: 2px 2px;
+  background-color: lemonchiffon;
+}

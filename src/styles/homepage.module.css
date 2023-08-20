@@ -1,0 +1,20 @@
+.mainContainer {
+  width: 95vw;
+  min-height: 80vh;
+  /* display: flex;
+  justify-content: center; */
+}
+
+.homepageBtnsDiv {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 50px;
+  /* margin-top: 50px; */
+}
+
+.infoBtn {
+  width: 120px;
+}

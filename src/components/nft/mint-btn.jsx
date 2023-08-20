@@ -98,8 +98,7 @@ export default function MintButton({ ...props }) {
       </div>
 
       <button
-        isDisabled={!account}
-        colorScheme="blue"
+        className={styles.buyBtn}
         onClick={() => writeMintAndTransfer()}
         {...props}
       >
