@@ -83,7 +83,7 @@ export default function MintButton({ ...props }) {
   //   });
   //#############################################
 
-  // use useContractWrite hook to make a multicall: "approve()" an ERC20 token to be spent by TicketsHandler contract && the mint function of the 'Tickets' contract
+  // use useContractWrite hook to make a first transaction: "approve(ticket_price)" an ERC20 token to be spent by TicketsHandler contract
   const { data: txDataApproveAndMint, write: writeApproveAndMint } =
     useContractWrite({
       calls: [
@@ -91,17 +91,17 @@ export default function MintButton({ ...props }) {
           contractAddress: environment.ethAddress,
           entrypoint: "approve",
           calldata: [
-            "0x04b6c0d179D7B8fb369afa4aD3d8D8E75a031E621319ca93326b27CbEa82Fd46",
+            environment.nftAddress,
+            // "0x025654448400d6078a4b9e09f6e90816bc63325996232aa1a69661c267354cab", // TicketsHandler contract address (it seems I'm obliged to use the contract address where the mint() function that includes the transferFrom() is because transferFrom uses "_spend_allowance()" that requires the recipient of the transfer to be the caller)
             1000000000000000,
             0,
-          ], // 0x04b6c0d179D7B8fb369afa4aD3d8D8E75a031E621319ca93326b27CbEa82Fd46 is my ArgentX testnet account and is used as the bookkeeper address for now as the Tickets contract current version v0.4 uses the ticketsHandler contract's owner as the BookKeeper account/address (and "1000000000000000, 0" is the current price of the ticket = 0,001 ETH)
+          ], // ("1000000000000000, 0" is the current price of the ticket = 0,001 ETH)
         },
-        // {
-        //   contractAddress: environment.nftAddress,
-        //   entrypoint: "mint",
-        //   calldata: [],
-        //   // calldata: [account?.address || "0x0"], // no calldata needed in mint() fn from latest TicketsHandler contract
-        // },
+        {
+          contractAddress: environment.nftAddress,
+          entrypoint: "mint",
+          calldata: [],
+        },
       ],
     });
 
