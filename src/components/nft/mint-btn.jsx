@@ -1,3 +1,5 @@
+// I have to replace "ApproveAndMint" by just "Mint" throughout this file!
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -39,8 +41,6 @@ const Balance = ({ account, mintHash }) => {
   // Set the internal state balance when the tokenBalanceData is fetched
   useEffect(() => {
     if (tokenBalanceData) {
-      // eslint-disable-next-line
-      // @ts-ignore
       setBalance(tokenBalanceData.balance.low);
     }
   }, [tokenBalanceData]);
@@ -87,16 +87,6 @@ export default function MintButton({ ...props }) {
   const { data: txDataApproveAndMint, write: writeApproveAndMint } =
     useContractWrite({
       calls: [
-        {
-          contractAddress: environment.ethAddress,
-          entrypoint: "approve",
-          calldata: [
-            environment.nftAddress,
-            // "0x025654448400d6078a4b9e09f6e90816bc63325996232aa1a69661c267354cab", // TicketsHandler contract address (it seems I'm obliged to use the contract address where the mint() function that includes the transferFrom() is because transferFrom uses "_spend_allowance()" that requires the recipient of the transfer to be the caller)
-            1000000000000000,
-            0,
-          ], // ("1000000000000000, 0" is the current price of the ticket = 0,001 ETH)
-        },
         {
           contractAddress: environment.nftAddress,
           entrypoint: "mint",

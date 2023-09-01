@@ -1,10 +1,14 @@
 .userBalanceContainer {
   display: flex;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .buyBtn {
   width: 120px;
   margin-bottom: 40px;
+}
+
+.userPermissionContainer {
+  margin-top: 40px;
 }
