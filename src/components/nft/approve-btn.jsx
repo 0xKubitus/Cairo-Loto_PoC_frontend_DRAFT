@@ -42,7 +42,8 @@ const Permission = ({ account, approveHash }) => {
   // Set the internal state permission when the tokenPermissionData is fetched
   useEffect(() => {
     if (tokenPermissionData) {
-      setPermission(tokenPermissionData.permission.low);
+      // console.log(tokenPermissionData); // SHOULD BE A COMMENT/DELETED
+      setPermission(tokenPermissionData.remaining.low);
     }
   }, [tokenPermissionData]);
 
@@ -54,7 +55,10 @@ const Permission = ({ account, approveHash }) => {
   return (
     <div>
       {permission <= 0 ? (
-        <p>REFUSED: Approval to spend ETH is mandatory</p>
+        <p>
+          REFUSED: Approval to spend ETH is mandatory - min qty needed:
+          1000000000000000 (0.001 ETH)
+        </p>
       ) : (
         <p>
           {permission.toString()} - min qty needed: 1000000000000000 (0.001 ETH)
