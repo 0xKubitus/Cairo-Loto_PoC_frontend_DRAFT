@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 
+import ApproveButton from "@/components/nft/approve-btn";
 import MintButton from "@/components/nft/mint-btn";
 import CurrentTransaction from "@/components/transactions/current-transaction";
 import TransactionsList from "@/components/transactions/transaction-list";
@@ -17,6 +18,7 @@ export default function Home() {
       <div className={styles.homepageBtnsDiv}>
         <button className={styles.infoBtn}>MORE INFO</button>
 
+        <ApproveButton />
         <MintButton />
 
         <CurrentTransaction />
