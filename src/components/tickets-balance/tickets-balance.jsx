@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 import {
   useAccount,
   useContractRead,
-  // useContractWrite,
-  // useTransactionManager,
   useWaitForTransaction,
 } from "@starknet-react/core";
 import { json } from "starknet";
