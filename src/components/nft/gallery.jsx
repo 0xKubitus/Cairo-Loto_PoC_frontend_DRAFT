@@ -64,10 +64,16 @@ const TicketsDetails = ({ account, burnHash }) => {
 
     return (
       <div>
+        {/* <p>{account.address}</p> */}
+
         <p>You possess: {balance.toString()} tickets</p>
-        <GetTicketsId balance={balance} />
-        {ticketsIDarray.map((ticketID) => (
-          <GetTicketsId ticketID={ticketID} key={ticketID} />
+
+        {ticketsIDarray.map((ticketIndex) => (
+          <GetTicketsId
+            account={account}
+            ticketIndex={ticketIndex}
+            key={ticketIndex}
+          />
         ))}
       </div>
     );
