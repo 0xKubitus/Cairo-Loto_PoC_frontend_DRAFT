@@ -60,12 +60,15 @@ const TicketsDetails = ({ account, burnHash }) => {
       ticketsIDarray.push(i);
     }
 
-    console.log(ticketsIDarray);
+    // console.log(ticketsIDarray);
 
     return (
       <div>
         <p>You possess: {balance.toString()} tickets</p>
         <GetTicketsId balance={balance} />
+        {ticketsIDarray.map((ticketID) => (
+          <GetTicketsId ticketID={ticketID} key={ticketID} />
+        ))}
       </div>
     );
   } else {
