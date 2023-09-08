@@ -47,19 +47,25 @@ const TicketsDetails = ({ account, burnHash }) => {
 
   // #########################################################################
   // DISPLAYING USER'S TICKETS
-  // const ownedTicketsIDsArray = [];
 
   if (balance > 0) {
-    // // console.log(typeof balance); // -> bigint (TO BE DELETED)
-    // let balanceNber = Number(balance);
-    // let arrLength = balanceNber - 1;
-    // // console.log(arrLength); // TO BE DELETED
+    const ticketsIDarray = [];
 
-    // for (let i = 0; i < arrLength; i++) {}
+    // console.log(typeof balance); // -> bigint (TO BE DELETED)
+    const balanceNber = Number(balance);
+    // const arrLength = balanceNber - 1;
+    // console.log(arrLength); // TO BE DELETED
+
+    for (let i = 0; i < balanceNber; i++) {
+      ticketsIDarray.push(i);
+    }
+
+    console.log(ticketsIDarray);
+
     return (
       <div>
         <p>You possess: {balance.toString()} tickets</p>
-        <GetTicketsId />
+        <GetTicketsId balance={balance} />
       </div>
     );
   } else {
