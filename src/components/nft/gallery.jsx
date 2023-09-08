@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useContractRead, useWaitForTransaction } from "@starknet-react/core";
 import { json } from "starknet";
 
+import GetTicketsId from "../dashboard/getTicketsId";
 import ticketNft from "@/assets/abis/abi_TicketsHandler_v0.4.json"; // make sure to import the latest TicketsHandler version's abi
 import environment from "environment";
 
@@ -44,14 +45,36 @@ const TicketsDetails = ({ account, burnHash }) => {
 
   // #########################################################################
 
-  return <p>You possess: {balance.toString()} tickets</p>;
+  // #########################################################################
+  // DISPLAYING USER'S TICKETS
+  // const ownedTicketsIDsArray = [];
+
+  if (balance > 0) {
+    // // console.log(typeof balance); // -> bigint (TO BE DELETED)
+    // let balanceNber = Number(balance);
+    // let arrLength = balanceNber - 1;
+    // // console.log(arrLength); // TO BE DELETED
+
+    // for (let i = 0; i < arrLength; i++) {}
+    return (
+      <div>
+        <p>You possess: {balance.toString()} tickets</p>
+        <GetTicketsId />
+      </div>
+    );
+  } else {
+    // #########################################################################
+
+    return <p>Please, connect your Starknet wallet</p>;
+  }
 };
 
 export default function Gallery({ account }) {
   return (
     <div>
       <p>Gallery</p>
-      <TicketsDetails account={account} />
+      {/* <TicketsDetails account={account} /> */}
+      {account && <TicketsDetails account={account} />}
     </div>
   );
 }
