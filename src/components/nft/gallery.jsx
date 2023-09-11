@@ -9,6 +9,8 @@ import GetTicketsId from "../dashboard/getTicketsId";
 import ticketNft from "@/assets/abis/abi_TicketsHandler_v0.4.json"; // make sure to import the latest TicketsHandler version's abi
 import environment from "environment";
 
+import styles from "@/styles/gallery.module.css";
+
 // Compiled ABI for my 'Tickets' contract
 const compiledTicketNft = json.parse(JSON.stringify(ticketNft));
 
@@ -38,16 +40,21 @@ const TicketsDetails = ({ account, burnHash }) => {
     }
   }, [tokenBalanceData]);
 
-  // Refresh the balance when the burn transaction is accepted on L2
-  useEffect(() => {
-    if (data && data.status === "ACCEPTED_ON_L2") refetch();
-  }, [refetch, data]);
+  // ----------------------------------------------------------------
+  // // Refresh the balance when the burn transaction is accepted on L2
+  // useEffect(() => {
+  //   if (data && data.status === "ACCEPTED_ON_L2") refetch();
+  // }, [refetch, data]);
 
+  // THE ABOVE CURRENTLY DOES NOT WORK
+  // I suppose this is because the burn is implemented in another component than here,
+  // where the state of the user's tickets balance is determined...
+  // I think using the useContext hook can solve the issue?
+  // ----------------------------------------------------------------
   // #########################################################################
 
   // #########################################################################
   // DISPLAYING USER'S TICKETS
-
   if (balance > 0) {
     const ticketsIDarray = [];
 
@@ -68,13 +75,15 @@ const TicketsDetails = ({ account, burnHash }) => {
 
         <p>You possess: {balance.toString()} tickets</p>
 
-        {ticketsIDarray.map((ticketIndex) => (
-          <GetTicketsId
-            account={account}
-            ticketIndex={ticketIndex}
-            key={ticketIndex}
-          />
-        ))}
+        <div className={styles.tickets_container}>
+          {ticketsIDarray.map((ticketIndex) => (
+            <GetTicketsId
+              account={account}
+              ticketIndex={ticketIndex}
+              key={ticketIndex}
+            />
+          ))}
+        </div>
       </div>
     );
   } else {
@@ -87,7 +96,6 @@ const TicketsDetails = ({ account, burnHash }) => {
 export default function Gallery({ account }) {
   return (
     <div>
-      <p>Gallery</p>
       {/* <TicketsDetails account={account} /> */}
       {account && <TicketsDetails account={account} />}
     </div>
