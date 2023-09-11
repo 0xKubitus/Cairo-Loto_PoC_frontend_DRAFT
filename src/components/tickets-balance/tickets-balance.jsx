@@ -45,6 +45,11 @@ const Balance = ({ account, mintHash }) => {
     if (data && data.status === "ACCEPTED_ON_L2") refetch();
   }, [refetch, data]);
 
+  // console.log("balance = ", balance); // -> 2n
+  // console.log("typeof balance = ", typeof balance); // -> bigint
+  // console.log("balance.valueOf() = ", balance.valueOf()); // -> 2n
+  // console.log(tokenBalanceData); // => { balance: {high: 0n, low: 2n} }
+
   return <span>{balance.toString()}</span>;
 };
 
