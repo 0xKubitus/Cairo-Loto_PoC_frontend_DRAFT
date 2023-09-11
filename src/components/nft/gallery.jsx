@@ -53,7 +53,7 @@ const TicketsDetails = ({ account, burnHash }) => {
 
     // console.log(typeof balance); // -> bigint (TO BE DELETED)
     const balanceNber = Number(balance);
-    // const arrLength = balanceNber - 1;
+    // const arrLength = balanceNber - 1; // TO BE DELETED
     // console.log(arrLength); // TO BE DELETED
 
     for (let i = 0; i < balanceNber; i++) {
