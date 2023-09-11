@@ -19,28 +19,22 @@ const GetTicketsId = ({ account, ticketIndex }) => {
   const ticketIndexObject = { high: 0, low: ticketIndex };
   // console.log("ticketIndexObject = ", ticketIndexObject);
 
-  // TODO: and use this new variable/const as arg/param in the call to 'tokenOfOwnerByIndex()'
-
   //################################
   // use useContractRead hook to fetch the tokenId of the ticket (by index)
   const { data: tokenOfOwnerByIndexData, refetch } = useContractRead({
     address: environment.nftAddress,
     abi: compiledTicketNft,
     functionName: "tokenOfOwnerByIndex",
-    args: [
-      account.address,
-      ticketIndexObject,
-      // { high: 0, low: 1 }, // NOTE THAT "low: 1" REFERS TO THE SECOND TOKEN BY INDEX, NOT THE FIRST ONE! (use "low: 1" for the first one)
-    ],
+    args: [account.address, ticketIndexObject],
   });
 
   // Set the internal state ticketId when the tokenOfOwnerByIndexData is fetched
   useEffect(() => {
     if (tokenOfOwnerByIndexData) {
-      console.log(
-        "Number(tokenOfOwnerByIndexData.tokenId.low) = ",
-        Number(tokenOfOwnerByIndexData.tokenId.low)
-      );
+      // console.log(
+      //   "Number(tokenOfOwnerByIndexData.tokenId.low) = ",
+      //   Number(tokenOfOwnerByIndexData.tokenId.low)
+      // );
       setTicketId(Number(tokenOfOwnerByIndexData.tokenId.low));
     }
   }, [tokenOfOwnerByIndexData]);
@@ -49,15 +43,13 @@ const GetTicketsId = ({ account, ticketIndex }) => {
 
   return (
     <div className="getTicketIdMainDiv">
-      {/* <p>{account.address}</p> */}
-
-      {ticketIndex >= 0 && <div>tokenIndex = {ticketIndex}</div>}
+      {/* {ticketIndex >= 0 && <div>tokenIndex = {ticketIndex}</div>} */}
 
       {/* //################################ */}
       {tokenOfOwnerByIndexData && <p>ticket ID = {ticketId}</p>}
       {/* //################################ */}
 
-      {/* {data && <div>ticket # = {data}</div>} */}
+      <button>BURN THIS TICKET (not implemented)</button>
     </div>
   );
 };
