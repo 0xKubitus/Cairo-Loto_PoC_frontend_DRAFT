@@ -72,7 +72,7 @@ const Permission = ({ account, approveHash }) => {
 export default function ApproveButton({ ...props }) {
   const { account } = useAccount();
   const { addTransaction } = useTransactionManager();
-  const bookKeeper = environment.bookKeeperAddress;
+  // const bookKeeper = environment.bookKeeperAddress;
 
   // use useContractWrite hook to invoke "approve(ticket_price)" on an ERC20 token to be spent by TicketsHandler contract
   const { data: txApproveData, write: writeApprove } = useContractWrite({
