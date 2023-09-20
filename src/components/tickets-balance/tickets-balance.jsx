@@ -9,7 +9,7 @@ import {
 } from "@starknet-react/core";
 import { json } from "starknet";
 
-import ticketNft from "@/assets/abis/abi_TicketsHandler_v0.4.json"; // make sure to import the latest TicketsHandler version's abi
+import ticketNft from "@/assets/abis/abi_TicketsHandler_v0.4.3.json"; // make sure to import the latest TicketsHandler version's abi
 import environment from "environment";
 
 // import styles from "@/styles/tickets-balance.module.css";

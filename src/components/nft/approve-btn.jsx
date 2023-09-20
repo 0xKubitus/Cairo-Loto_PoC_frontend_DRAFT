@@ -14,8 +14,7 @@ import {
 import { json } from "starknet";
 
 import ERC20abi from "@/assets/abis/abi_dummy_token.json";
-// import ticketNft from "@/assets/abis/abi_Tickets_v0.3.2.json";
-import ticketNft from "@/assets/abis/abi_TicketsHandler_v0.4.json";
+import ticketNft from "@/assets/abis/abi_TicketsHandler_v0.4.3.json";
 import environment from "environment";
 
 import styles from "@/styles/mint-btn.module.css";

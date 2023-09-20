@@ -22,11 +22,11 @@ export default function MintButton({ ...props }) {
   // const bookKeeper = environment.bookKeeperAddress;
 
   // use useContractWrite hook to invoke both the 'approve()' from USDC contract and the 'mint()' function from TicketsHandler contract
+  // (I don't why there is a "failed to fetch" error with ArgentX but the issue is most likely on their side, not in the below code)
   const { data: txDataApproveAndMint, write: writeApproveAndMint } =
     useContractWrite({
       calls: [
         {
-          // contractAddress: environment.ethAddress,
           contractAddress: environment.usdcAddress,
           entrypoint: "approve",
           calldata: [environment.nftAddress, 10000000, 0], // (1000000000000000, 0) = 0,001 ETH -> 18 decimals, whereas USDC "only" has 6 decimals, so 10 USDC = (10000000, 0)
