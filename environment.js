@@ -2,7 +2,8 @@ import * as process from "process";
 
 const global = {
   nftAddress:
-    "0x05bb38d5bfb0e6b4918edc3a02839981afd49dd27b3566cba0d2be50333bed28", // TicketsHandler v0.4.3.2 (currently testing if deposit to zkLend is working)
+    "0x00a0ca16d70d6cc5433a4892c6aec42d5b681e5842a741ad45876d2225ec4aee", // TicketsHandler v0.4.4 (LATEST = burn now withdraws from zklend - or at least, that's what I'm trying to verify now)
+  // "0x05bb38d5bfb0e6b4918edc3a02839981afd49dd27b3566cba0d2be50333bed28", // TicketsHandler v0.4.3.2 (currently testing if deposit to zkLend is working)
   // "0x0233314cf65085aabb2762bd2481caa2123c52a52f37d18b4f1ea2cef24a386c", // TicketsHandler v0.4.3.1 (only approves zkLend Market, but no deposit)
   // "0x039eb1299cbb259edabb45376ec742497c67150b9adc2d9c3c026a8cc58c634a", // AVNU's contract
   // "0x06b69b2e55b2327728bb21ec3f8f5203bf68ff129a2c64d4a8a119e6ccd43dc7", // Tickets contract v0.3
